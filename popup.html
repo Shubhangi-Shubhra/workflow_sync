@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Workflow Sync</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body class="light-theme">
+  <div class="container">
+    <h1>Workflow Sync</h1>
+    <form id="task-form">
+      <input type="text" id="task-input" placeholder="Enter task...">
+      <input type="text" id="description-input" placeholder="Enter description...">
+      <select id="priority-select">
+        <option value="1">Low Priority</option>
+        <option value="2">Medium Priority</option>
+        <option value="3">High Priority</option>
+      </select>
+      <select id="category-select">
+        <option value="work">Work</option>
+        <option value="personal">Personal</option>
+        <option value="errands">Errands</option>
+        <!-- Add more options as needed -->
+      </select>
+      <input type="date" id="due-date-input"> <!-- New input for due date -->
+      <input type="text" id="attachment-input" placeholder="Enter attachment (file path or URL)..."> <!-- New input for attachment -->
+      <button type="submit">Add Task</button>
+    </form>
+    <div id="task-list"></div>
+    <button id="theme-toggle-button" onclick="toggleTheme()">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+          <path d="M12 2c-5.514 0-10 4.486-10 10s4.486 10 10 10 10-4.486 10-10-4.486-10-10-10zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8v16z"/>
+        </svg>
+      </button>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

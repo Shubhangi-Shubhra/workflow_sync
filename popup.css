@@ -1,0 +1,178 @@
+body.light-theme {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  padding: 20px;
+  color: #333; /* Adjust text color */
+}
+
+body.dark-theme {
+  font-family: Arial, sans-serif;
+  background-color: #333;
+  color: #f0f0f0; /* Adjust text color */
+  padding: 20px;
+}
+
+.container {
+  max-width: 400px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Add specific styles for dark mode */
+.dark-theme .container {
+  background-color: #444;
+  color: #f0f0f0;
+}
+
+.dark-theme .task-item {
+  background-color: #555;
+}
+
+.dark-theme .delete-button {
+  background-color: #f44336;
+}
+
+.dark-theme .delete-button:hover {
+  background-color: #d32f2f;
+}
+
+/* Center align the "Add Task" button */
+#task-form {
+  margin-top: 10px;
+  text-align: center; /* Center align the form content */
+}
+
+button[type="submit"] {
+  padding: 8px 16px;
+  background-color: #f44336; /* Red background color */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px; /* Adjust margin for spacing */
+}
+
+button[type="submit"]:hover {
+  background-color: #d32f2f; /* Darker red on hover */
+}
+
+/* Adjust spacing and style for the priority select */
+#priority-select {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+/* Adjust spacing and style for the category select */
+#category-select {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+/* Style for attachment input */
+#attachment-input {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  margin-bottom: 10px; /* Added margin for spacing */
+}
+
+input[type="text"],
+select,
+button[type="submit"] {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 8px;
+  font-size: 14px;
+  color: #333; /* Adjust text color */
+}
+
+.dark-theme input[type="text"],
+.dark-theme select,
+.dark-theme button[type="submit"] {
+  background-color: #444;
+  color: #f0f0f0; /* Adjust text color */
+  border-color: #666;
+}
+#theme-toggle-button {
+  display: block;
+  margin: 20px auto;
+}
+/* Additional styles for task list and task items */
+#task-list {
+  margin-top: 20px;
+}
+
+.task-item {
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.task-item h3 {
+  margin-top: 0;
+  font-size: 18px;
+}
+
+.task-item p {
+  margin-bottom: 5px;
+  color: #666;
+}
+
+/* Dark mode styles for task items */
+.dark-theme .task-item {
+  background-color: #555;
+  color: #f0f0f0;
+  border-color: #444;
+}
+
+/* Styles for attachments */
+.attachment {
+  margin-top: 10px;
+  padding: 5px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.attachment a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.attachment a:hover {
+  text-decoration: underline;
+}
+/* Additional styles for due date input */
+#due-date-input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.dark-theme #due-date-input {
+  background-color: #444;
+  color: #f0f0f0;
+  border-color: #666;
+}
