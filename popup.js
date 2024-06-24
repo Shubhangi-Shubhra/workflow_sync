@@ -4,17 +4,14 @@ document.addEventListener('DOMContentLoaded', function () {
     const descriptionInput = document.getElementById('description-input');
     const prioritySelect = document.getElementById('priority-select');
     const categorySelect = document.getElementById('category-select');
-    const attachmentInput = document.getElementById('attachment-input'); // New input for attachments
-    const dueDateInput = document.getElementById('due-date-input'); // New input for due date
+    const attachmentInput = document.getElementById('attachment-input'); 
+    const dueDateInput = document.getElementById('due-date-input');
     const taskList = document.getElementById('task-list');
 
-    // Function to toggle between light and dark themes
     function toggleTheme(theme) {
         document.body.classList.remove('light-theme', 'dark-theme');
         document.body.classList.add(theme);
     }
-
-    // Load tasks from storage and display them
     function loadTasks() {
         chrome.storage.local.get('tasks', function (data) {
             const tasks = data.tasks || [];
@@ -24,24 +21,24 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    loadTasks(); // Load tasks when popup is opened
+    loadTasks(); 
 
-    // Add task form submit event
+    
     taskForm.addEventListener('submit', function (event) {
         event.preventDefault();
         const taskText = taskInput.value.trim();
         const descriptionText = descriptionInput.value.trim();
         const priorityValue = prioritySelect.value;
         const categoryValue = categorySelect.value;
-        const attachmentText = attachmentInput.value.trim(); // Get attachment value
-        const dueDate = dueDateInput.value.trim(); // Get due date value
+        const attachmentText = attachmentInput.value.trim(); 
+        const dueDate = dueDateInput.value.trim(); 
 
         if (taskText) {
             addTask(taskText, descriptionText, priorityValue, categoryValue, attachmentText, dueDate);
             taskInput.value = '';
             descriptionInput.value = '';
-            attachmentInput.value = ''; // Clear attachment input after adding task
-            dueDateInput.value = ''; // Clear due date input after adding task
+            attachmentInput.value = ''; 
+            dueDateInput.value = ''; 
         }
     });
 
@@ -53,9 +50,9 @@ document.addEventListener('DOMContentLoaded', function () {
             description: descriptionText,
             priority: priorityValue,
             category: categoryValue,
-            attachment: attachmentText, // Include attachment property
+            attachment: attachmentText, 
             completed: false,
-            dueDate: dueDate, // Include due date property
+            dueDate: dueDate, 
             reminder: null,
             recurring: null
         };
@@ -70,7 +67,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Function to display tasks in the popup
     function displayTask(task) {
         const taskItem = document.createElement('div');
         taskItem.classList.add('task-item');
@@ -125,7 +121,6 @@ document.addEventListener('DOMContentLoaded', function () {
         taskList.appendChild(taskItem);
     }
 
-    // Function to update task completion status
     function updateTaskCompletion(taskId, completed) {
         chrome.storage.local.get('tasks', function (data) {
             const tasks = data.tasks || [];
@@ -140,7 +135,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Function to delete a task
     function deleteTask(taskId) {
         chrome.storage.local.get('tasks', function (data) {
             const tasks = data.tasks || [];
@@ -149,7 +143,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Helper function to get priority label
     function getPriorityLabel(priorityValue) {
         switch (priorityValue) {
             case '1':
@@ -163,7 +156,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // Function to filter tasks by category and priority
     function filterTasks(category, priority) {
         chrome.storage.local.get('tasks', function (data) {
             const tasks = data.tasks || [];
@@ -175,20 +167,16 @@ document.addEventListener('DOMContentLoaded', function () {
                 } else if (priority) {
                     return task.priority === priority;
                 }
-                return true; // Return all tasks if no filters are applied
+                return true; 
             });
 
-            // Clear current task list
             taskList.innerHTML = '';
 
-            // Display filtered tasks
             filteredTasks.forEach(task => {
                 displayTask(task);
             });
         });
     }
-
-    // Event listeners for category and priority selection
     categorySelect.addEventListener('change', function () {
         const selectedCategory = categorySelect.value;
         const selectedPriority = prioritySelect.value;
@@ -201,8 +189,6 @@ document.addEventListener('DOMContentLoaded', function () {
         filterTasks(selectedCategory, selectedPriority);
     });
 
-    // Toggle theme based on user preference or system settings
-    // Example: Toggle theme based on a button click or system settings
     const themeToggleButton = document.getElementById('theme-toggle-button');
     themeToggleButton.addEventListener('click', function () {
         if (document.body.classList.contains('dark-theme')) {
